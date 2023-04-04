@@ -6,7 +6,7 @@ interface NavigationProps {}
 const Navigation: React.FC<NavigationProps> = ({}) => {
   return (
     <nav className="fixed bottom-0 inset-x-0 p-4 mb-10 mx-auto w-full text-white-800">
-      <div className="flex space-between">
+      <div className="flex space-between z-[-500]">
         <div className="flex flex-col justify-end w-1/2 ml-10">
           <div>
             <h1 className="text-2xl font-bold text-white-800">
@@ -19,16 +19,16 @@ const Navigation: React.FC<NavigationProps> = ({}) => {
           </div>
           <div className="flex mt-4">
             <Link
+              to="/"
+              className="text-white-800 hover:text-gray-200 mx-2 font-medium"
+            >
+              Projects
+            </Link>
+            <Link
               to="/about"
               className="text-white-800 hover:text-gray-200 mx-2 font-medium"
             >
               About
-            </Link>
-            <Link
-              to="/projects"
-              className="text-white-800 hover:text-gray-200 mx-2 font-medium"
-            >
-              Projects
             </Link>
             <Link
               to="/contact"
@@ -44,7 +44,7 @@ const Navigation: React.FC<NavigationProps> = ({}) => {
               href="https://www.linkedin.com/in/steven-rejdukowski-47b879130/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white-800 hover:text-gray-200 mx-2"
+              className="text-white-800 hover:text-gray-200 mx-2 z-10"
             >
               LinkedIn
             </a>
@@ -52,7 +52,7 @@ const Navigation: React.FC<NavigationProps> = ({}) => {
               href="https://github.com/Stevenrej"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white-800 hover:text-gray-200 mx-2"
+              className="text-white-800 hover:text-gray-200 mx-2 z-10"
             >
               GitHub
             </a>
@@ -60,7 +60,7 @@ const Navigation: React.FC<NavigationProps> = ({}) => {
               href="https://docs.google.com/document/d/15VKSgodzYJZAe4ZJACTgC0Xtnjn-EXsU8yn6rk659d8/edit?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white-800 hover:text-gray-200 mx-2"
+              className="text-white-800 hover:text-gray-200 mx-2 z-10"
             >
               Resume
             </a>
