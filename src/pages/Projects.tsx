@@ -14,7 +14,7 @@ const Projects: React.FC = () => {
       title: 'Spicetown Guitars',
       description: `This website showcases the work and pricing of a guitar repair shop, and features a contact form for customers to schedule repairs. With a clean and modern design, high-quality images of the shop's work, and a user-friendly navigation, the website effectively communicates the services offered by the shop and serves as a valuable tool for expanding their customer base.`,
       date: 'Mar 2023',
-      link: 'https://tune-port.netlify.app/',
+      link: 'https://www.spicetownguitars.com/',
       github: 'https://github.com/Spice-Town/spicetown-client',
     },
     {
