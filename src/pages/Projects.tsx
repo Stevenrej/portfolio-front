@@ -34,7 +34,7 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <div className='projects mb-14'>
+    <div className='projects mb-14'>    
       {projects.map((project, index) => (
         <ProjectCard
           key={index}
