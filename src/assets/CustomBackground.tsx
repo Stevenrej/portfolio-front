@@ -1,18 +1,23 @@
 import React from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { degreesToRadians, mix } from 'popmotion';
 import '../styles.css';
 
 const color = '#ffffff';
 
-const Icosahedron = () => (
-  <mesh rotation-x={0.07}>
-    <icosahedronGeometry args={[0.5, 1]} />
-    <meshBasicMaterial wireframe color={color} />
-  </mesh>
-);
+const Icosahedron = () => {
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  return (
+    <mesh ref={meshRef} rotation-x={0.5}>
+      <icosahedronGeometry args={[0.75, 1]} />
+      <meshBasicMaterial wireframe color={color} />
+    </mesh>
+  );
+};
+
 
 const Star = ({ p }: { p: number }) => {
   const ref = useRef<THREE.Mesh>(null);
@@ -23,16 +28,26 @@ const Star = ({ p }: { p: number }) => {
     const xAngle = degreesToRadians(360) * p;
     ref.current?.position.setFromSphericalCoords(distance, yAngle, xAngle);
   });
-  
+
+  useFrame(() => {
+    if (ref.current) {
+      ref.current.rotation.x += 0.04;
+      ref.current.rotation.y += 0.02;
+    }
+  });
+
   return (
     <mesh ref={ref}>
-      <boxGeometry args={[0.025, 0.025, 0.025]} />
+      <tetrahedronGeometry args={[0.025, 0]} />
       <meshBasicMaterial wireframe color={color} />
     </mesh>
   );
 };
 
-const BackgroundElements = ({ numStars = 1000 }: { numStars?: number }) => {
+
+
+
+const BackgroundElements = ({ numStars = 700 }: { numStars?: number }) => {
   const groupRef = useRef<THREE.Group>(null);
 
   useFrame(() => {
