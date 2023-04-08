@@ -1,22 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import * as THREE from 'three';
-import { Canvas, useThree, useFrame } from '@react-three/fiber';
-import { useRef, useLayoutEffect, useState } from 'react';
-import {
-  useTransform,
-  useTime,
-  useMotionValue,
-  useScroll,
-  MotionValue,
-} from 'framer-motion';
-import { degreesToRadians, progress, mix } from 'popmotion';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { useRef } from 'react';
+import { degreesToRadians, mix } from 'popmotion';
 import '../styles.css';
 
-const color = '#111111';
+const color = '#ffffff';
 
 const Icosahedron = () => (
-  <mesh rotation-x={0.35}>
-    <icosahedronGeometry args={[5, 0]} /> {/* Change the first argument to adjust the size */}
+  <mesh rotation-x={0.07}>
+    <icosahedronGeometry args={[0.5, 1]} />
     <meshBasicMaterial wireframe color={color} />
   </mesh>
 );
@@ -24,7 +17,7 @@ const Icosahedron = () => (
 const Star = ({ p }: { p: number }) => {
   const ref = useRef<THREE.Mesh>(null);
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     const distance = mix(2, 3.5, Math.random());
     const yAngle = mix(degreesToRadians(80), degreesToRadians(100), Math.random());
     const xAngle = degreesToRadians(360) * p;
@@ -33,47 +26,41 @@ const Star = ({ p }: { p: number }) => {
   
   return (
     <mesh ref={ref}>
-      <boxGeometry args={[25, 25, 25]} />
+      <boxGeometry args={[0.025, 0.025, 0.025]} />
       <meshBasicMaterial wireframe color={color} />
     </mesh>
   );
 };
 
-const BackgroundElements = ({ numStars = 100, scrollYProgress }: { numStars?: number, scrollYProgress: MotionValue<number> }) => {
-  const gl = useThree((state) => state.gl);
-  const yAngle = useTransform(scrollYProgress, [0, 1], [0.001, degreesToRadians(180)]);
-  const distance = useTransform(scrollYProgress, [0, 1], [10, 3]);
-  const time = useTime();
+const BackgroundElements = ({ numStars = 1000 }: { numStars?: number }) => {
+  const groupRef = useRef<THREE.Group>(null);
 
-  useFrame(({ camera }) => {
-    camera.position.setFromSphericalCoords(distance.get(), yAngle.get(), time.get() * 0.0005);
-    camera.updateProjectionMatrix();
-    camera.lookAt(0, 0, 0);
+  useFrame(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.x += 0.005;
+      groupRef.current.rotation.y += 0.004;
+    }
   });
-
-  useLayoutEffect(() => gl.setPixelRatio(0.3));
 
   const stars = [];
   for (let i = 0; i < numStars; i++) {
-    stars.push(<Star p={progress(0, numStars, i)} />);
+    stars.push(<Star p={i / numStars} />);
   }
 
   return (
-    <>
+    <group ref={groupRef}>
       <Icosahedron />
       {stars}
-    </>
+    </group>
   );
 };
 
 const CustomBackground = ({ children }: { children: React.ReactNode }) => {
-  const { scrollYProgress } = useScroll();
-  
   return (
     <>
       <div className="custom-bg-container">
         <Canvas>
-          <BackgroundElements scrollYProgress={scrollYProgress} />
+          <BackgroundElements />
         </Canvas>
       </div>
       <div className="content-container">{children}</div>
