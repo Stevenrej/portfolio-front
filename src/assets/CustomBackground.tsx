@@ -5,13 +5,13 @@ import { useRef, useEffect } from 'react';
 import { degreesToRadians, mix } from 'popmotion';
 import '../styles.css';
 
-const color = '#ffffff';
+const color = '#6e7ee8';
 
 const Icosahedron = () => {
   const meshRef = useRef<THREE.Mesh>(null);
 
   return (
-    <mesh ref={meshRef} rotation-x={0.5}>
+    <mesh ref={meshRef} rotation-x={8}>
       <icosahedronGeometry args={[0.75, 1]} />
       <meshBasicMaterial wireframe color={color} />
     </mesh>
@@ -36,8 +36,12 @@ const Star = ({ p }: { p: number }) => {
     }
   });
 
+  const randomNumber = Math.round(Math.random() * 10);
+
+  console.log(randomNumber);
+
   return (
-    <mesh ref={ref}>
+    <mesh ref={ref} rotation-x={randomNumber} rotation-y={randomNumber}>
       <tetrahedronGeometry args={[0.025, 0]} />
       <meshBasicMaterial wireframe color={color} />
     </mesh>
