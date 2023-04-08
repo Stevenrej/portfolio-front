@@ -12,13 +12,13 @@ const App: React.FC = () => {
   return (
     <Router>
         <Layout>
-            {/* <CustomBackground> */}
+            <CustomBackground>
           <Routes>
             <Route path="/" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-            {/* </CustomBackground> */}
+            </CustomBackground>
         </Layout>
     </Router>
   );
