@@ -10,7 +10,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const textColor = "text-white";
 
   return (
-    <div className={`fixed inset-0 overflow-y-auto border m-10 border-white-400 ${textColor}`}>
+    <div className={`fixed inset-0 overflow-y-auto border m-10 border-white-400 ${textColor}`} id="scroll">
       <div className="container ml-auto p-1 m-1">
         <Navigation/>
         <div className="flex justify-end">

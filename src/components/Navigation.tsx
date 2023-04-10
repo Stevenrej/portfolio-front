@@ -22,7 +22,7 @@ const Navigation: React.FC<NavigationProps> = ({}) => {
           </div>
           <div className="flex mt-4">
             <motion.div
-              whileHover={{ scale: 1.1}}
+              whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <Link
@@ -33,23 +33,41 @@ const Navigation: React.FC<NavigationProps> = ({}) => {
               </Link>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1.1}}
+              whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <Link
                 to="/about"
                 className="text-white-800 hover:text-gray-200 mx-2 font-bold"
+                onClick={() => {
+                  const container = document.getElementById("scroll");
+                  if (container) {
+                    container.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                  }
+                }}
               >
                 About
               </Link>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1.1}}
+              whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <Link
                 to="/contact"
                 className="text-white-800 hover:text-gray-200 mx-2 font-bold"
+                onClick={() => {
+                  const container = document.getElementById("scroll");
+                  if (container) {
+                    container.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                  }
+                }}
               >
                 Contact
               </Link>
@@ -59,7 +77,7 @@ const Navigation: React.FC<NavigationProps> = ({}) => {
         <div className="flex justify-end w-1/2 mr-10 mt-auto mb-0">
           <div className="flex h-full">
             <motion.div
-              whileHover={{ scale: 1.1}}
+              whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <a
@@ -72,7 +90,7 @@ const Navigation: React.FC<NavigationProps> = ({}) => {
               </a>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1.1}}
+              whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <a
@@ -85,7 +103,7 @@ const Navigation: React.FC<NavigationProps> = ({}) => {
               </a>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1.1}}
+              whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <a

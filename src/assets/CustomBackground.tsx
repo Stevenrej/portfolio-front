@@ -1,7 +1,7 @@
 import React from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { degreesToRadians, mix } from 'popmotion';
 import '../styles.css';
 
@@ -37,8 +37,6 @@ const Star = ({ p }: { p: number }) => {
   });
 
   const randomNumber = Math.round(Math.random() * 10);
-
-  console.log(randomNumber);
 
   return (
     <mesh ref={ref} rotation-x={randomNumber} rotation-y={randomNumber}>
