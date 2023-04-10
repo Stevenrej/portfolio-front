@@ -1,6 +1,13 @@
 import React from "react";
+import { motion, AnimatePresence } from "framer-motion"
 
-const About: React.FC = () => {
+type Props = {
+  currentPage: "projects" | "about" | "contact";
+};
+
+const About: React.FC<Props> = ({ currentPage }) => {
+  console.log(currentPage);
+
   return (
     <div className="container mx-auto px-4 py-8 text-left">
       <div className="grid grid-cols-3 md:grid-cols-5 gap-8">

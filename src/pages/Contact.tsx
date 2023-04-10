@@ -1,8 +1,13 @@
 import React from 'react';
 
+type Props = {
+  currentPage: "projects" | "about" | "contact";
+};
 
 
-const Contact: React.FC = () => {
+const Contact: React.FC<Props>  = ({currentPage}) => {
+
+  console.log(currentPage);
 
  return (
     <div className="contact">

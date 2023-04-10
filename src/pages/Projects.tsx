@@ -1,7 +1,14 @@
 import React from 'react';
 import ProjectCard from '../components/ProjectCard';
 
-const Projects: React.FC = () => {
+type Props = {
+  currentPage: "projects" | "about" | "contact";
+};
+
+const Projects: React.FC<Props> = ({currentPage}) => {
+
+  console.log(currentPage);
+
   const projects = [
     {
       title: 'Tune-Port',
