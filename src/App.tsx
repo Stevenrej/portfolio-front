@@ -8,14 +8,19 @@ import CustomBackground from "./assets/CustomBackground";
 import "./styles.css";
 
 const App: React.FC = () => {
+  const [currentPage, setCurrentPage] = React.useState<"projects" | "about" | "contact">(
+    "projects"
+  );
+
+
   return (
     <Router>
-      <Layout>
+      <Layout setCurrentPage={setCurrentPage}>
         <CustomBackground>
           <Routes>
-            <Route path="/" element={<Projects />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/" element={<Projects currentPage={currentPage} />} />
+            <Route path="/about" element={<About currentPage={currentPage} />} />
+            <Route path="/contact" element={<Contact currentPage={currentPage} />} />
           </Routes>
         </CustomBackground>
       </Layout>
