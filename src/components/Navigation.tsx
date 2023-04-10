@@ -2,9 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-interface NavigationProps {}
+interface NavigationProps {
+  setCurrentPage: React.Dispatch<React.SetStateAction<"projects" | "about" | "contact">>;
+}
 
-const Navigation: React.FC<NavigationProps> = ({}) => {
+const Navigation: React.FC<NavigationProps> = ({ setCurrentPage }) => {
+
+  console.log(setCurrentPage)
   return (
     <nav className="fixed bottom-0 inset-x-0 p-4 mb-10 mx-auto w-full text-white-800">
       <div className="flex space-between h-8">
@@ -28,6 +32,7 @@ const Navigation: React.FC<NavigationProps> = ({}) => {
               <Link
                 to="/"
                 className="text-white-800 hover:text-gray-200 mx-2 font-bold"
+                onClick={() => {setCurrentPage("projects")}}
               >
                 Projects
               </Link>
@@ -40,6 +45,7 @@ const Navigation: React.FC<NavigationProps> = ({}) => {
                 to="/about"
                 className="text-white-800 hover:text-gray-200 mx-2 font-bold"
                 onClick={() => {
+                  setCurrentPage("about");
                   const container = document.getElementById("scroll");
                   if (container) {
                     container.scrollTo({
@@ -60,6 +66,7 @@ const Navigation: React.FC<NavigationProps> = ({}) => {
                 to="/contact"
                 className="text-white-800 hover:text-gray-200 mx-2 font-bold"
                 onClick={() => {
+                  setCurrentPage("contact");
                   const container = document.getElementById("scroll");
                   if (container) {
                     container.scrollTo({
