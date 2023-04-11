@@ -6,15 +6,13 @@ type Props = {
 };
 
 const About: React.FC<Props> = ({ currentPage }) => {
-  console.log(currentPage);
-
   return (
-<>
+    <>
       {currentPage === "about" && (
         <motion.div
           key="about-motion"
           initial={{ opacity: 0, y: -100 }}
-          animate={{ opacity: 1, y: 0 , transition: { duration: 0.75 } }}
+          animate={{ opacity: 1, y: 0, transition: { duration: 0.75 } }}
           exit={{ opacity: 0, y: -100, transition: { duration: 0.75 } }}
         >
           <div className="container mx-auto px-4 py-8 text-left">
@@ -106,7 +104,7 @@ const About: React.FC<Props> = ({ currentPage }) => {
           </div>
         </motion.div>
       )}
-</>
+    </>
   );
 };
 
