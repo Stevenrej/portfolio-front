@@ -8,7 +8,17 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ setCurrentPage }) => {
 
-  console.log(setCurrentPage)
+  const handleLinkClick = (page: "projects" | "about" | "contact") => {
+    setCurrentPage(page);
+    const container = document.getElementById("scroll");
+    if (container) {
+      container.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <nav className="fixed bottom-0 inset-x-0 p-4 mb-10 mx-auto w-full text-white-800">
       <div className="flex space-between h-8">
@@ -32,7 +42,7 @@ const Navigation: React.FC<NavigationProps> = ({ setCurrentPage }) => {
               <Link
                 to="/"
                 className="text-white-800 hover:text-gray-200 mx-2 font-bold"
-                onClick={() => {setCurrentPage("projects")}}
+                onClick={() => {handleLinkClick("projects")}}
               >
                 Projects
               </Link>
@@ -44,16 +54,7 @@ const Navigation: React.FC<NavigationProps> = ({ setCurrentPage }) => {
               <Link
                 to="/about"
                 className="text-white-800 hover:text-gray-200 mx-2 font-bold"
-                onClick={() => {
-                  setCurrentPage("about");
-                  const container = document.getElementById("scroll");
-                  if (container) {
-                    container.scrollTo({
-                      top: 0,
-                      behavior: "smooth",
-                    });
-                  }
-                }}
+                onClick={() => {handleLinkClick("about")}}
               >
                 About
               </Link>
@@ -65,16 +66,7 @@ const Navigation: React.FC<NavigationProps> = ({ setCurrentPage }) => {
               <Link
                 to="/contact"
                 className="text-white-800 hover:text-gray-200 mx-2 font-bold"
-                onClick={() => {
-                  setCurrentPage("contact");
-                  const container = document.getElementById("scroll");
-                  if (container) {
-                    container.scrollTo({
-                      top: 0,
-                      behavior: "smooth",
-                    });
-                  }
-                }}
+                onClick={() => {handleLinkClick("contact")}}
               >
                 Contact
               </Link>
