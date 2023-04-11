@@ -12,7 +12,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <Layout setCurrentPage={setCurrentPage}>
+      <Layout setCurrentPage={setCurrentPage} currentPage={currentPage}>
         <CustomBackground>
           <AnimatedRoutes currentPage={currentPage} />
         </CustomBackground>
