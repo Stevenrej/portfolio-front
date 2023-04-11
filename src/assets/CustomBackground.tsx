@@ -61,7 +61,7 @@ const BackgroundElements = ({ numStars = 700 }: { numStars?: number }) => {
 
   const stars = [];
   for (let i = 0; i < numStars; i++) {
-    stars.push(<Star p={i / numStars} />);
+    stars.push(<Star p={i / numStars} key={`star-${i}`} />);
   }
 
   return (
