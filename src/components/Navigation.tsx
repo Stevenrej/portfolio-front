@@ -33,7 +33,7 @@ const Navigation: React.FC<NavigationProps> = ({
               Steven Rejdukowski
             </h1>
             <p className="font-medium text-white-800 ml-2 mt-2">
-              Full-Stack Software Developer
+              Full-Stack Developer
             </p>
             <p className="font-medium text-white-800 ml-2 mt-2">
               Chicago Illinois
