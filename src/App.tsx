@@ -1,22 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Layout from "./components/Layout";
-import Projects from "./pages/Projects";
-import Contact from "./pages/Contact";
-import About from "./pages/About";
 import CustomBackground from "./assets/CustomBackground";
 import "./styles.css";
+import AnimatedRoutes from "./AnimatedRoutes";
+
+type Page = "projects" | "about" | "contact";
 
 const App: React.FC = () => {
+  const [currentPage, setCurrentPage] = React.useState<Page>("projects");
+
   return (
     <Router>
-      <Layout>
+      <Layout setCurrentPage={setCurrentPage} currentPage={currentPage}>
         <CustomBackground>
-          <Routes>
-            <Route path="/" element={<Projects />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
+          <AnimatedRoutes currentPage={currentPage} />
         </CustomBackground>
       </Layout>
     </Router>
