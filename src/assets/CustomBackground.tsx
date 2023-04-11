@@ -61,7 +61,9 @@ const BackgroundElements = ({ numStars = 700 }: { numStars?: number }) => {
 
   const stars = [];
   for (let i = 0; i < numStars; i++) {
-    stars.push(<Star p={i / numStars} key={`star-${i}`} />);
+    stars.push(
+    <Star p={i / numStars} key={`star-${i}`} />
+    );
   }
 
   return (
@@ -73,16 +75,19 @@ const BackgroundElements = ({ numStars = 700 }: { numStars?: number }) => {
 };
 
 const CustomBackground = ({ children }: { children: React.ReactNode }) => {
+  const memoizedBackgroundElements = React.useMemo(() => <BackgroundElements />, []);
+
   return (
     <>
       <div className="custom-bg-container">
         <Canvas>
-          <BackgroundElements />
+          {memoizedBackgroundElements}
         </Canvas>
       </div>
       <div className="content-container">{children}</div>
     </>
   );
 };
+
 
 export default CustomBackground;
