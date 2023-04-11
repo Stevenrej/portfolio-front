@@ -4,15 +4,11 @@ import { motion } from "framer-motion";
 
 type Props = {
   currentPage: "projects" | "about" | "contact";
+  isFirstRender: boolean;
+  setIsFirstRender: (value: boolean) => void;
 };
 
-const Projects: React.FC<Props> = ({ currentPage }) => {
-  console.log(currentPage);
-
-  React.useEffect(() => {
-    console.log("currentPage changed:", currentPage);
-  }, [currentPage]);
-  
+const Projects: React.FC<Props> = ({ currentPage, isFirstRender, setIsFirstRender }) => {
 
   const projects = [
     {
@@ -48,13 +44,16 @@ const Projects: React.FC<Props> = ({ currentPage }) => {
   ];
 
   return (
-<>
+    <>
       {currentPage === "projects" && (
         <motion.div
           key="projects-motion"
-          initial={{ opacity: 0, y: 200 }}
+          initial={isFirstRender ? { opacity: 1, y: 10 } : { opacity: 0, y: 200 }}
           animate={{ opacity: 1, y: 10, transition: { duration: 0.75 } }}
           exit={{ opacity: 0, y: 200, transition: { duration: 0.75 } }}
+          onAnimationStart={() => {
+            setIsFirstRender(false);
+          }}
         >
           <div className="projects mb-14">
             {projects.map((project, index) => (
@@ -70,7 +69,7 @@ const Projects: React.FC<Props> = ({ currentPage }) => {
           </div>
         </motion.div>
       )}
-</>
+    </>
   );
 };
 

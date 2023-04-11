@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, Route, Routes } from "react-router-dom";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
@@ -11,14 +11,28 @@ type Props = {
 };
 
 const AnimatedRoutes: React.FC<Props> = ({ currentPage }) => {
+  const [isFirstRender, setIsFirstRender] = useState(true);
+
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Projects currentPage={currentPage} />} />
+        <Route
+          path="/"
+          element={
+            <Projects
+              currentPage={currentPage}
+              isFirstRender={isFirstRender}
+              setIsFirstRender={setIsFirstRender}
+            />
+          }
+        />
         <Route path="/about" element={<About currentPage={currentPage} />} />
-        <Route path="/contact" element={<Contact currentPage={currentPage} />} />
+        <Route
+          path="/contact"
+          element={<Contact currentPage={currentPage} />}
+        />
       </Routes>
     </AnimatePresence>
   );
