@@ -120,13 +120,10 @@ const Contact: React.FC<Props> = ({ currentPage }) => {
                 }}
                 whileTap={{ scale: 0.9 }}
                 whileInView={{ opacity: 1 }}
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               >
-                <button
-                  type="submit"
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                >
-                  Submit
-                </button>
+                Submit
               </motion.button>
             </form>
           </div>
