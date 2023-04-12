@@ -11,8 +11,30 @@ type Page = "projects" | "about" | "contact";
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>("projects");
   const [loading, setLoading] = useState(true);
+  const [serverRunning, setServerRunning] = useState(false);
+
+  console.log(serverRunning);
 
   useEffect(() => {
+    const checkServerStatus = async () => {
+      try {
+        // Send a request to the health check endpoint on your server
+        let response = await fetch(`http://localhost:3001/health`);
+        let data = await response.json();
+
+        if (data.status === 'ok') {
+          setServerRunning(true);
+        } else {
+          // If the server is not running, start it up
+          await fetch(`http://localhost:3001/start-server`);
+          setServerRunning(true);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    checkServerStatus();
     setTimeout(() => {
       setLoading(false);
     }, 3000);
