@@ -19,14 +19,14 @@ const App: React.FC = () => {
     const checkServerStatus = async () => {
       try {
         // Send a request to the health check endpoint on your server
-        let response = await fetch(`http://localhost:3001/health`);
+        let response = await fetch(`${import.meta.env.VITE_SERVER}/health`);
         let data = await response.json();
 
         if (data.status === 'ok') {
           setServerRunning(true);
         } else {
           // If the server is not running, start it up
-          await fetch(`http://localhost:3001/start-server`);
+          await fetch(`${import.meta.env.VITE_SERVER}/start-server`);
           setServerRunning(true);
         }
       } catch (error) {

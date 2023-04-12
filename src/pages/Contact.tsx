@@ -16,7 +16,7 @@ const Contact: React.FC<Props> = ({ currentPage }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/mail", {
+      const response = await fetch(`${import.meta.env.VITE_SERVER}/mail`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
