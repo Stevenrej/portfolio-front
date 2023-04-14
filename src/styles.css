@@ -12,6 +12,15 @@ body {
   height: 100%;
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+
 .custom-bg-container {
   position: absolute;
   top: -60px;
@@ -20,7 +29,6 @@ body {
   height: 200%;
   z-index: -1;
   overflow: hidden;
-
 }
 
 .content-container {
@@ -28,8 +36,44 @@ body {
   z-index: 1;
 }
 
+.container {
+  overflow: hidden;
+}
+
 .dash {
   transition: opacity 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 767px) {
+  .project-card-mobile {
+    margin-top: 10px;
+    font-size: 0.8em;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: 10px;
+  }
+  .project-card-title-mobile {
+    font-size: 1.9em;
+  }
+  .project-card-description-mobile {
+    font-size: 0.7em;
+    font-weight: 600;
+  }
+  .project-card-date-mobile {
+    font-size: 1em;
+  }
+  .project-card-icon-mobile {
+    width: 30px;
+    height: 30px;
+  }
+  .custom-bg-container {
+    position: absolute;
+    left: -300px;
+    height: 220%;
+    width: 200%;
+    z-index: -1;
+    overflow: hidden;
+  }
 }
 
 
