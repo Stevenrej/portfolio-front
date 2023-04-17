@@ -64,7 +64,7 @@ const Contact: React.FC<Props> = ({ currentPage }) => {
               onSubmit={handleSubmit}
               className="w-full max-w-md mt-8 ml-auto text-left mr-10"
             >
-              <p className="font-medium mb-4">
+              <p className="font-bold mb-4 ml-2 mr-2 text-lg">
                 Connect with Me! Submit Your Details and Send a Direct Email to
                 My Inbox.
               </p>

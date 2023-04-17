@@ -37,7 +37,7 @@ const App: React.FC = () => {
     checkServerStatus();
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1500);
   }, []);
 
   return (

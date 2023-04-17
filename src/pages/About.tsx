@@ -18,7 +18,7 @@ const About: React.FC<Props> = ({ currentPage }) => {
           <div className="container mx-auto px-4 py-8 text-left">
             <div className="grid grid-cols-3 md:grid-cols-5 gap-8">
               <div className="col-span-2 md:col-span-3">
-                <h1 className="text-2xl font-bold mb-4">
+                <h1 className="text-2xl font-bold mb-4 text-gray-300">
                   Full-stack software developer based in Chicago, IL,
                   specializing in creating responsive, user-friendly web
                   applications with a focus on e-commerce solutions. With over 7
@@ -36,7 +36,7 @@ const About: React.FC<Props> = ({ currentPage }) => {
                     program allowed me to sharpen my skills in various
                     languages.
                   </p>
-                  <p>
+                  <p className="mb-4">
                     Thanks to my proficiency in various tools and frameworks, I
                     feel well-equipped to tackle even the most complex software
                     projects. I am excited to continue honing my skills and
@@ -54,7 +54,7 @@ const About: React.FC<Props> = ({ currentPage }) => {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Technologies</h3>
                   <h4 className="text-lg font-semibold">Languages</h4>
-                  <ul className="list-disc list-inside grid grid-cols-2">
+                  <ul className="list-none list-inside grid grid-cols-2 text-gray-300">
                     <li>JavaScript</li>
                     <li>TypeScript</li>
                     <li>HTML</li>
@@ -65,7 +65,7 @@ const About: React.FC<Props> = ({ currentPage }) => {
                   <h4 className="text-lg font-semibold mt-4">
                     Skills and Tools
                   </h4>
-                  <ul className="list-disc list-inside grid grid-cols-2">
+                  <ul className="list-none list-inside grid grid-cols-2 text-gray-300">
                     <li>React</li>
                     <li>Tailwind CSS</li>
                     <li>Sass</li>
