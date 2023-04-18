@@ -52,7 +52,7 @@ body {
 .blur-bg {
   position: relative;
   z-index: 12;
-  padding: 10px;
+  padding: 3px;
 }
 
 .blur-content {
