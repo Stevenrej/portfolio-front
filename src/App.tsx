@@ -51,7 +51,7 @@ const App: React.FC = () => {
             exit={{ opacity: 0, transition: { duration: 0.75 } }}
             className="flex justify-center items-center h-screen"
           >
-            <div className="text-4xl font-bold">Steven Rejdukowski's Portfolio</div>
+            <div className="app-title text-4xl font-bold">Steven Rejdukowski's Portfolio</div>
           </motion.div>
         </AnimatePresence>
       ) : (
