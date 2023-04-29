@@ -22,7 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, date, lin
   }
 
   return (
-    <div className="project-card project-card-mobile p-3 rounded-md ml-auto max-w-3xl z-0 border-b border-gray-300">
+    <div className="project-card project-card-mobile p-3 ml-auto max-w-3xl z-0 border-b border-gray-300">
       <a href={link} target="_blank" rel="noopener noreferrer">
         <motion.div
           whileHover={{ scale: 1.05 }}

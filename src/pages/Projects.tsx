@@ -36,8 +36,7 @@ const Projects: React.FC<Props> = ({ currentPage, isFirstRender, setIsFirstRende
         >
           <div className={`projects ${margin}`}>
             {isMobile && (
-      <h3 className="text-center text-gray-300 font-bold">Tap any title to view Project</h3>
-
+              <h3 className="text-center text-gray-300 font-bold underline">Tap any title to view Project!</h3>
             )}
             {projects.map((project, index) => (
               <ProjectCard
