@@ -17,7 +17,7 @@ const Navigation: React.FC<NavigationProps> = ({
 }) => {
   const [isOpen, setOpen] = React.useState(false);
 
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const isMobile = window.matchMedia("(max-width: 975px)").matches;
 
   const handleLinkClick = (page: "projects" | "about" | "contact") => {
     setCurrentPage(page);
