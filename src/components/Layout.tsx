@@ -12,7 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children, setCurrentPage, currentPage }
 
   const textColor = "text-white";
 
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const isMobile = window.matchMedia("(max-width: 975px)").matches;
 
   let width;
 

@@ -69,12 +69,12 @@ body {
   right: 0;
   bottom: 0;
   z-index: 11;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 975px) {
   .app-title {
     margin-left: 40px;
   }

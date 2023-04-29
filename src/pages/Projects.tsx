@@ -11,7 +11,7 @@ type Props = {
 
 const Projects: React.FC<Props> = ({ currentPage, isFirstRender, setIsFirstRender }) => {
 
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const isMobile = window.matchMedia("(max-width: 975px)").matches;
 
   let margin;
 
